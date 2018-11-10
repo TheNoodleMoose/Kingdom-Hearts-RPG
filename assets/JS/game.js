@@ -1,93 +1,122 @@
 
 var game = {
+    character: {
 
-        mickey: {
-            health: 200,
-            attack: 5,
-            counterAttack: 6,
-            isPlayer: true,
-            isEnemy: false,
-            isDefeated: false,
-        },
-        donald: {
-            health: 150,
-            attack: 8,
-            counterAttack: 7,
-            isPlayer: true,
-            isEnemy: false,
-            isDefeated: false
-        },
-        goofy: {
-            health: 250,
-            attack: 4,
-            counterAttack: 4,
-            isPlayer: true,
-            isEnemy: false,
-            isDefeated: false
+    },
+    mickey: {
+        health: 200,
+        attack: 5,
+        counterAttack: 7,
+        isPlayer: true,
+        isEnemy: false,
+        isDefeated: false,
+    },
+    donald: {
+        health: 150,
+        attack: 8,
+        counterAttack: 10,
+        isPlayer: true,
+        isEnemy: false,
+        isDefeated: false
+    },
+    goofy: {
+        health: 250,
+        attack: 4,
+        counterAttack: 6,
+        isPlayer: true,
+        isEnemy: false,
+        isDefeated: false
     },
     currentPlayer: "",
     currentEnemy: "",
     stage: 0,
     damageMultipler: 1,
-    
+    enemiesDefeated: 0,
 
-    damageCalculation: function(character) {
+
+    damageCalculation: function (character) {
         this.damageMultipler += .1;
-    
-        if(character.isPlayer) {
-            var totalDamage = character.attack * this.damageMultipler * this.randomDamage(); 
+
+        if (character.isPlayer) {
+            var totalDamage = character.attack * this.damageMultipler * this.randomDamage();
         }
         else {
             var totalDamage = character.counterAttack * this.randomDamage();
         }
-        
+
         return totalDamage;
     },
 
     randomDamage() {
-        return (Math.floor(Math.random() * (100 - 85)+ 85)) / 100;
+        return (Math.floor(Math.random() * (100 - 85) + 85)) / 100;
     },
 
-    damageDealer: function(defender, attacker) {
+    damageDealer: function (defender, attacker) {
         defender.health -= this.damageCalculation(attacker);
     },
 
-    loseCondition: function() {
-
+    loseCondition: function () {
+        if (game[game.currentPlayer].isPlayer === true && game[game.currentPlayer].health <= 0) {
+            game[game.currentPlayer].isDefeated = true;
+            console.log(game[game.currentPlayer].isDefeated)
+            alert("You Lose")
+        }
     },
 
-    winCondition: function() {
-
+    winCondition: function () {
+        if(this.enemiesDefeated === 2) {
+            alert("You Win")
+            location.reload();
+        }
     },
 
 }
 
-$(".character").on("click", function() {
-    if(game.stage === 0) {
+$(".character").on("click", function () {
+    if (game.stage === 0) {
         game.currentPlayer = $(this).attr("value");
         console.log(game.currentPlayer);
         game.stage = 1;
         game[game.currentPlayer].isPlayer = true;
         game[game.currentPlayer].isEnemy = false;
-        console.log(game[game.currentPlayer].isPlayer)
-    } 
-    else if(game.stage === 1) {
+        console.log("Is Player: " + game[game.currentPlayer].isPlayer)
+    }
+    else if (game.stage === 1) {
         game.currentEnemy = $(this).attr("value");
-        console.log(game.currentEnemy);
+        if(game[game.currentEnemy].isDefeated === false) {
+            console.log(game.currentEnemy);
         game.stage = 2;
         game[game.currentEnemy].isEnemy = true;
         game[game.currentEnemy].isPlayer = false;
-        console.log(game[game.currentEnemy].isEnemy)
-    }
-    
-  });
-
-$(".attack").on("click", function() {
-    if(game.stage === 2) {
-        game.damageDealer(game[game.currentEnemy], game[game.currentPlayer]);
-        game.damageDealer(game[game.currentPlayer], game[game.currentEnemy]);
-        console.log("Player Health " + game[game.currentPlayer].health);
-        console.log("Enemy Health " + game[game.currentEnemy].health);
+        }
+        if(game[game.currentEnemy].isDefeated === true) {
+            // game[game.currentEnemy].isEnemy = false;
+            alert("They Are Already Defeated")
+        }
         
+        console.log("Is Enemy: " + game[game.currentEnemy].isEnemy)
+    }
+
+});
+
+$(".attack").on("click", function () {
+    if (game.stage === 2) {
+        if (game[game.currentEnemy].health > 0 && game[game.currentEnemy].isDefeated === false) {
+            game.damageDealer(game[game.currentEnemy], game[game.currentPlayer]);
+            game.damageDealer(game[game.currentPlayer], game[game.currentEnemy]);
+            game.loseCondition();
+            console.log("Player Health " + game[game.currentPlayer].health);
+            console.log("Enemy Health " + game[game.currentEnemy].health);
+        }
+
+        if (game[game.currentEnemy].health <= 0) {
+            game[game.currentEnemy].isDefeated = true;
+            game.enemiesDefeated++;
+            console.log("Is Defeated: " + game[game.currentEnemy].isDefeated);
+            console.log("Enemies Defeated:" + game.enemiesDefeated);
+            game.stage = 1;
+        }
+
+        game.winCondition();
     }
 });
