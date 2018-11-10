@@ -1,9 +1,7 @@
 
 var game = {
 
-    characters: {
-
-        Mickey: {
+        mickey: {
             health: 200,
             attack: 5,
             counterAttack: 6,
@@ -11,7 +9,7 @@ var game = {
             isEnemy: false,
             isDefeated: false,
         },
-        Donald: {
+        donald: {
             health: 150,
             attack: 8,
             counterAttack: 7,
@@ -19,30 +17,38 @@ var game = {
             isEnemy: false,
             isDefeated: false
         },
-        Goofy: {
+        goofy: {
             health: 250,
             attack: 4,
             counterAttack: 4,
             isPlayer: true,
             isEnemy: false,
             isDefeated: false
-        },
     },
-
+    currentPlayer: "",
+    currentEnemy: "",
+    stage: 0,
     damageMultipler: .02,
 
-    addAttack: function() {
-        for(i = 0; i < this.characters.length; i++) {
-            this.characters.attack + 5
-        } 
+    damageCalculation: function(character) {
+        this.damageMultipler *= 2;
+        if(game.character.isPlayer) {
+            var totalDamage = game.character.attack * this.damageMultipler * this.randomDamage(); 
+        }
+        else {
+            var totalDamage = game.character.counterAttack * this.damageMultipler
+        }
+        
+        return totalDamage;
+        console.log(totalDamage)
     },
 
-    damageCalculation: function() {
-        this.damageMultipler += .1;
+    randomDamage() {
+        return (Math.floor(Math.random() * (100 - 85)+ 85)) / 100;
     },
 
-    damageDealer: function() {
-
+    damageDealer: function(defender, attacker) {
+        defender.health =- this.damageCalculation(attacker);
     },
 
     loseCondition: function() {
@@ -51,12 +57,28 @@ var game = {
 
     winCondition: function() {
 
-    }
+    },
 
 }
 
-$("#attack").on("click", function() {
-    alert("I've been clicked!");
-    game.damageCalculation();
-    console.log(game.damageMultipler)
+$(".character").on("click", function() {
+    if(game.stage === 0) {
+        game.currentPlayer = $(this).attr("value");
+        console.log(game.currentPlayer);
+        game.stage = 1;
+        game[game.currentPlayer].isPlayer = false
+        console.log(game[game.currentPlayer].isPlayer)
+    } 
+    else if(game.stage === 1) {
+        game.currentEnemy = $(this).attr("value");
+        game.stage = 2;
+        console.log(game.currentEnemy)
+    }
+    
   });
+
+$(".attack").on("click", function() {
+    if(game.stage === 2) {
+        damageDealer
+    }
+});
