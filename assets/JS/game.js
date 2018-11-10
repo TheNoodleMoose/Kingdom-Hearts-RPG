@@ -66,13 +66,17 @@ $(".character").on("click", function() {
         game.currentPlayer = $(this).attr("value");
         console.log(game.currentPlayer);
         game.stage = 1;
-        game[game.currentPlayer].isPlayer = false
+        game[game.currentPlayer].isPlayer = true;
+        game[game.currentPlayer].isEnemy = false;
         console.log(game[game.currentPlayer].isPlayer)
     } 
     else if(game.stage === 1) {
         game.currentEnemy = $(this).attr("value");
+        console.log(game.currentEnemy);
         game.stage = 2;
-        console.log(game.currentEnemy)
+        game[game.currentEnemy].isEnemy = true;
+        game[game.currentEnemy].isPlayer = false;
+        console.log(game[game.currentEnemy].isEnemy)
     }
     
   });
