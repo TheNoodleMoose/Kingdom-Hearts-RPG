@@ -28,19 +28,20 @@ var game = {
     currentPlayer: "",
     currentEnemy: "",
     stage: 0,
-    damageMultipler: .02,
+    damageMultipler: 1,
+    
 
     damageCalculation: function(character) {
-        this.damageMultipler *= 2;
-        if(game.character.isPlayer) {
-            var totalDamage = game.character.attack * this.damageMultipler * this.randomDamage(); 
+        this.damageMultipler += .1;
+    
+        if(character.isPlayer) {
+            var totalDamage = character.attack * this.damageMultipler * this.randomDamage(); 
         }
         else {
-            var totalDamage = game.character.counterAttack * this.damageMultipler
+            var totalDamage = character.counterAttack * this.randomDamage();
         }
         
         return totalDamage;
-        console.log(totalDamage)
     },
 
     randomDamage() {
@@ -48,7 +49,7 @@ var game = {
     },
 
     damageDealer: function(defender, attacker) {
-        defender.health =- this.damageCalculation(attacker);
+        defender.health -= this.damageCalculation(attacker);
     },
 
     loseCondition: function() {
@@ -83,6 +84,10 @@ $(".character").on("click", function() {
 
 $(".attack").on("click", function() {
     if(game.stage === 2) {
-        damageDealer
+        game.damageDealer(game[game.currentEnemy], game[game.currentPlayer]);
+        game.damageDealer(game[game.currentPlayer], game[game.currentEnemy]);
+        console.log("Player Health " + game[game.currentPlayer].health);
+        console.log("Enemy Health " + game[game.currentEnemy].health);
+        
     }
 });
