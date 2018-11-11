@@ -60,6 +60,7 @@ var game = {
             game[game.currentPlayer].isDefeated = true;
             console.log(game[game.currentPlayer].isDefeated)
             alert("You Lose")
+            location.reload();
         }
     },
 

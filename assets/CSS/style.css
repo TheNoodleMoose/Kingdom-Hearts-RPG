@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Yatra+One');
+
+body {
+    font-size: 1.3em;
+    background: url('../images/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.character {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: solid green 2px;
+    text-align: center;
+    color: white;
+    font-family: 'Yatra One', cursive;
+}
