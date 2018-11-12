@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Yatra+One');
 
+/*Global */
 body {
     font-size: 1.3em;
     color: white;
@@ -9,49 +10,31 @@ body {
     background-size: cover;
 }
 
+
+/* Character Selection */
+
+/* Styles the characters are in to choose from */
 #choose-character {
     display: flex;
-
+    justify-content: space-evenly;
 }
 
+/*Styles the text of the charatcer boxes */
 #choose-character p {
     padding: 0;
     margin: 0;
 }
 
-#battleDiv {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-#enemiesToFight {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    height: 400px;
-    border: 2px solid red;
-}
-
-#fight-area {
-    display: flex;
-    justify-content: space-evenly;
-    height:300px;
-    width: 500px;
-    margin: 0 auto;
-    border: 2px solid red;
-}
-
-#defeatedEnemies {
-    display:flex;
-    flex-direction: column;
-    width: 300px;
-    height: 400px;
-    border: 2px solid red;
-}
+/* Styles the health text to a smaller font size from characters names */
 .health {
     font-size: 16px;
 }
 
+
+    /* Characters */
+/*<=================>*/
+
+/*Styles the actual box the characters are in */
 .character {
     display: flex;
     flex-direction: column;
@@ -61,37 +44,78 @@ body {
     width: 200px;
     height: 200px;
     text-align: center;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
-#attack {
-    width: 50px;
-    height: 50px;
-    border: 1px solid lightblue;
-    background: white;
-    border-radius: 10px;
-}
-
+/*gives mickey his character image */
 .mickey {
     background: url("../images/mickey-character-select.png");
     background-repeat: no-repeat;
     background-size: cover;    
 }
-
+/*gives donald his character image */
 .donald {
     background: url("../images/donald-character-select.png");
     background-repeat: no-repeat;
     background-size: cover;    
 }
-
+/*gives goofy his character image */
 .goofy {
     background: url("../images/goofy-character-select.png");
     background-repeat: no-repeat;
     background-size: cover;    
 }
-
+/*gives pooh his character image */
 .pooh {
     background: url("../images/pooh-character-select.png");
     background-repeat: no-repeat;
     background-size: cover;    
 }
+
+    /* Fighting Areas */
+/*<=====================>*/
+
+/* Styles the whole div enemies and the player get put into once a character has been chosen */
+#battleDiv {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* This styles the div the player and chosen enemy fight in */
+#fight-area {
+    display: flex;
+    justify-content: space-evenly;
+    height:300px;
+    width: 500px;
+    margin: 0 auto;
+    border: 2px solid red;
+}
+
+/* Styles the div the enemies get pushed to once the player chooses a character */
+#enemiesToFight {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    border: 2px solid red;
+}
+
+/*Styles the div the enemies get pushed to once they are defeated */
+#defeatedEnemies {
+    display:flex;
+    flex-direction: column;
+    width: 300px;
+    height: 400px;
+    border: 2px solid red;
+}
+
+/*This styles the attack button */
+#attack {
+    width: 50px;
+    height: 50px;
+    border: 1px solid lightblue;
+    background: red;
+    color: white;
+    border-radius: 10px;
+}
+
