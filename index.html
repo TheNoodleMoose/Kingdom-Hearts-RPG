@@ -42,15 +42,21 @@
             <div id="enemiesToFight">Enemy Selection</div>
 
             <div id="fight-area">
-                <div id="selectedCharacter"><span class="yourHero">Your Hero</span></div>
+                <div id="selectedCharacter">
+                    <span class="yourHero">Your Hero</span>
+                    <span id="heroGoesHere"></span>
+                    <div id="playerDamage"></div>
+                </div>
                 <button type="button" id="attack" class="attack">Attack</button>
-                <div id="chosenEnemy"><span class="activeEnemy">Active Enemy</span></div>
+                <div id="chosenEnemy">
+                    <span class="activeEnemy">Active Enemy</span>
+                    <span id="enemyGoesHere"></span>
+                    <div id="enemyDamage"></div>
+                </div>
             </div>
 
             <div id="defeatedEnemies">Defeated Enemies</div>
 
-            <div id="playerDamage"></div>
-            <div id="enemyDamage"></div>
         </div>
     </div>
 </body>
