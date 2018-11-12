@@ -15,7 +15,8 @@ body {
     flex-direction: column;
 }
 
-/* Character Selection */
+    /* Character Selection */
+/*<==========================>*/
 
 /* Styles the characters are in to choose from */
 #choose-character {
@@ -55,27 +56,189 @@ body {
 
 /*gives mickey his character image */
 .mickey {
-    background: url("../images/mickey-character-select.png");
+    background: url("../images/mickey/mickey-select.png");
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: contain;
+    image-rendering: pixelated;
+    background-position: center;     
 }
+
+#selectedCharacter .mickey {
+    background: url("../images/mickey/mickey-sprite-right.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated;
+    background-position: center;
+}
+
+#chosenEnemy .mickey {
+    background: url("../images/mickey/mickey-sprite-left.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated;
+    background-position: center; 
+}
+
+#chosenEnemy .mickey #name {
+    display: none;
+}
+
+#selectedCharacter .mickey #name {
+    display: none;
+}
+
+#defeatedEnemies .mickey {
+    margin: 0 auto;
+    background: url("../images/mickey/mickey-defeated.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    image-rendering: pixelated; 
+}
+
+#defeatedEnemies .mickey #name, #defeatedEnemies .mickey .health {
+    display: none;
+}
+
+    /* DONALD CHARACTER */
 /*gives donald his character image */
 .donald {
-    background: url("../images/donald-character-select.png");
+    background: url("../images/donald/donald-select.png");
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: contain;
+    image-rendering: pixelated;
+    background-position: center;    
 }
+#selectedCharacter .donald {
+    background: url("../images/donald/donald-sprite-right.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated; 
+}
+
+#chosenEnemy .donald {
+    background: url("../images/donald/donald-sprite-left.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated; 
+}
+
+#chosenEnemy .donald #name {
+    display: none;
+}
+
+#selectedCharacter .donald #name {
+    display: none;
+}
+
+#defeatedEnemies .donald {
+    margin: 0 auto;
+    background: url("../images/donald/donald-defeated.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated; 
+    background-position: center;
+}
+
+#defeatedEnemies .donald #name, #defeatedEnemies .donald .health {
+    display: none;
+}
+
+    /* GOOFY CHARACTER */
+/*<======================>*/
 /*gives goofy his character image */
 .goofy {
-    background: url("../images/goofy-character-select.png");
+    background: url("../images/goofy/goofy-select.png");
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: contain;
+    image-rendering: pixelated;
+    background-position: center;     
 }
+
+#selectedCharacter .goofy {
+    background: url("../images/goofy/goofy-sprite-right.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated;
+    background-position: center;
+}
+
+#chosenEnemy .goofy {
+    background: url("../images/goofy/goofy-sprite-left.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated;
+    background-position: center; 
+}
+
+#chosenEnemy .goofy #name {
+    display: none;
+}
+
+#selectedCharacter .goofy #name {
+    display: none;
+}
+
+#defeatedEnemies .goofy {
+    margin: 0 auto;
+    background: url("../images/goofy/1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    image-rendering: pixelated; 
+}
+
+#defeatedEnemies .goofy #name, #defeatedEnemies .goofy .health {
+    display: none;
+}
+
+    /* POOH CHARACTER */
+/*<=====================>*/
+
 /*gives pooh his character image */
 .pooh {
-    background: url("../images/pooh-character-select.png");
+    background: url("../images/pooh/pooh-select.png");
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: contain;
+    image-rendering: pixelated;
+    background-position: center;     
+}
+
+#selectedCharacter .pooh {
+    background: url("../images/pooh/pooh-sprite-right.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated;
+    background-position: center;
+}
+
+#chosenEnemy .pooh {
+    background: url("../images/pooh/pooh-sprite-left.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: pixelated;
+    background-position: center; 
+}
+
+#chosenEnemy .pooh #name {
+    display: none;
+}
+
+#selectedCharacter .pooh #name {
+    display: none;
+}
+
+#defeatedEnemies .pooh {
+    margin: 0 auto;
+    background: url("../images/pooh/pooh-defeated.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    image-rendering: pixelated; 
+}
+
+#defeatedEnemies .pooh #name, #defeatedEnemies .pooh .health {
+    display: none;
 }
 
     /* Fighting Areas */
@@ -86,7 +249,6 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    z-index: 3;
 }
 
 /* This styles the div the player and chosen enemy fight in */
@@ -98,7 +260,6 @@ body {
     width: 500px;
     margin: 0 auto;
     border: 2px solid red;
-    z-index: 1;
 }
 
 /*Styles the fight area container that holds the chosen character */
@@ -109,6 +270,7 @@ body {
     align-items: center;
     pointer-events: none;
 }
+
 
 /*Styles the fight area container that holds the chosen enemy */
 #chosenEnemy {
