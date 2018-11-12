@@ -4,23 +4,87 @@ body {
     font-size: 1.3em;
     color: white;
     font-family: 'Yatra One', cursive;
-    background: url('../images/background.jpg');
+    background: url('../images/background.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+#choose-character {
+    display: flex;
+
+}
+
+#choose-character p {
+    padding: 0;
+    margin: 0;
+}
+
+#battleDiv {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#enemiesToFight {
+    display: flex;
+    width: 200px;
+    height: 400px;
+    border: 2px solid red;
+}
+
+#fight-area {
+    display: flex;
+    justify-content: space-evenly;
+    height:200px;
+    width: 500px;
+    margin: 0 auto;
+    border: 2px solid red;
+}
+
+#defeatedEnemies {
+    display:flex;
+    flex-direction: column;
+    width: 200px;
+    height: 400px;
+    border: 2px solid red;
+}
+.health {
+    font-size: 16px;
+}
+
 .character {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    border: solid green 2px;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0 10px;
+    width: 200px;
+    height: 200px;
+    border: solid red 2px;
     text-align: center;
     color: white;
 }
 
-.attack {
+#attack {
     border: 1px solid lightblue;
     background: white;
     border-radius: 10px;
-    padding: 5px 10px;;
+    padding: 5px 10px;
+    margin: 0 auto;
+}
+
+.mickey {
+    background: url("../images/mickey-character-select.png");
+    background-repeat: no-repeat;
+    background-size: cover;    
+}
+
+.donald {
+    background: url("../images/donald-character-select.png");
+    background-repeat: no-repeat;
+    background-size: cover;    
+}
+
+.goofy {
+    background: url("../images/goofy-character-select.png");
+    background-repeat: no-repeat;
+    background-size: cover;    
 }

@@ -14,15 +14,36 @@
 
 <body>
     <div id="choose-character">
-        <div id="mickey " class="character" value="mickey">Mickey</div>
-        <div id="donald" class="character" value="donald">Donald</div>
-        <div id="goofy"  class="character" value="goofy">Goofy</div>
+        <div id="mickey" class="character mickey" value="mickey">
+            <p>Mickey</p>
+            <p></p>
+            <p class="health">Health:<span class="health enemyHealth"></span></p>
+        </div>
+        <div id="donald" class="character donald" value="donald">
+            <p>Donald</p>
+            <p></p>
+            <p class="health">Health:<span class=" health enemyHealth"></span></p>
+        </div>
+        <div id="goofy" class="character goofy" value="goofy">
+            <p>Goofy</p>
+            <p></p>
+            <p class="health">Health:<span class=" health enemyHealth"></span></p>
+        </div>
     </div>
     <button type="button" id="attack" class="attack">Attack</button>
+    <div id="battleDiv">
+        <div id="enemiesToFight">Enemy Selection</div>
 
-    <div id="selectedCharacter">Selected Character</div>
-    <div id="enemiesToFight">Enemy Selection</div>
-    <div id="chosenEnemy">Defender</div>
+        <div id="fight-area">
+            <div id="selectedCharacter">Your Hero</div>
+            <div id="chosenEnemy">Active Enemy</div>
+        </div>
+
+        <div id="defeatedEnemies">Defeated Enemies</div>
+        
+        <div id="playerDamage"></div>
+        <div id="enemyDamage"></div>
+    </div>
 </body>
 
 </html>

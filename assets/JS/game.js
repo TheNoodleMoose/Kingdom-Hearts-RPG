@@ -53,6 +53,7 @@ var game = {
 
     damageDealer: function (defender, attacker) {
         defender.health -= this.damageCalculation(attacker);
+        
     },
 
     loseCondition: function () {
