@@ -86,6 +86,7 @@ body {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    z-index: 3;
 }
 
 /* This styles the div the player and chosen enemy fight in */
@@ -97,6 +98,7 @@ body {
     width: 500px;
     margin: 0 auto;
     border: 2px solid red;
+    z-index: 1;
 }
 
 /*Styles the fight area container that holds the chosen character */
@@ -105,6 +107,7 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    pointer-events: none;
 }
 
 /*Styles the fight area container that holds the chosen enemy */
@@ -144,6 +147,7 @@ body {
     width: 300px;
     height: 550px;
     border: 2px solid red;
+    pointer-events: none;
 }
 
 /*This styles the attack button */

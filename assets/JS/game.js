@@ -47,10 +47,10 @@ var game = {
         this.damageMultipler += .1;
 
         if (character.isPlayer) {
-            var totalDamage = character.attack * this.damageMultipler * this.randomDamage();
+            var totalDamage = character.attack * Math.round(this.damageMultipler) * Math.round(this.randomDamage());
         }
         else {
-            var totalDamage = character.counterAttack * this.randomDamage();
+            var totalDamage = character.counterAttack * Math.round(this.randomDamage());
         }
 
         return totalDamage;
@@ -60,8 +60,24 @@ var game = {
         return (Math.floor(Math.random() * (100 - 85) + 85)) / 100;
     },
 
+
     damageDealer: function (defender, attacker) {
-        defender.health -= this.damageCalculation(attacker);     
+        defender.health -= this.damageCalculation(attacker);
+        if(defender === game.mickey) {
+            $(".mickeyHealth").html(" " + defender.health) 
+        }
+
+        if(defender === game.donald) {
+            $(".donaldHealth").html(" " + defender.health) 
+        }
+
+        if(defender === game.goofy) {
+            $(".goofyHealth").html(" " + defender.health) 
+        }
+
+        if(defender === game.pooh) {
+            $(".poohHealth").html(" " + defender.health) 
+        }
     },
 
     loseCondition: function () {
