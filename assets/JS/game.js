@@ -68,14 +68,14 @@ var game = {
         if (game[game.currentPlayer].isPlayer === true && game[game.currentPlayer].health <= 0) {
             game[game.currentPlayer].isDefeated = true;
             console.log(game[game.currentPlayer].isDefeated)
-            alert("You Lose")
+            alert("You Have Been Slain! Try Again!")
             location.reload();
         }
     },
 
     winCondition: function () {
         if(this.enemiesDefeated === 3) {
-            alert("You Win")
+            alert("The Final Foe Is Defeated, You Win!")
             location.reload();
         }
     },
@@ -157,14 +157,32 @@ $(".attack").on("click", function () {
             console.log("Enemy Health " + game[game.currentEnemy].health);
         }
 
-        if (game[game.currentEnemy].health <= 0) {
+        if (game[game.currentEnemy].health <= 0 && game[game.currentPlayer].health > 0) {
             game[game.currentEnemy].isDefeated = true;
             game.enemiesDefeated++;
             console.log("Is Defeated: " + game[game.currentEnemy].isDefeated);
             console.log("Enemies Defeated:" + game.enemiesDefeated);
             game.stage = 1;
+
+            if(game.mickey.isDefeated === true) {
+                $("#mickey").appendTo("#defeatedEnemies")
+            }
+            if(game.donald.isDefeated === true) {
+                $("#donald").appendTo("#defeatedEnemies")
+            }
+            if(game.goofy.isDefeated === true) {
+                $("#goofy").appendTo("#defeatedEnemies")
+            }
+            if(game.pooh.isDefeated === true) {
+                $("#pooh").appendTo("#defeatedEnemies")
+            }
+            
         }
 
         game.winCondition();
     }
 });
+
+if(game.mickey.isDefeated === true) {
+    $("#mickey").appendTo("#defeatedEnemies")
+}
