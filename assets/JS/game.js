@@ -27,6 +27,15 @@ var game = {
         isEnemy: false,
         isDefeated: false
     },
+
+    pooh: {
+        health: 175,
+        attack: Math.floor((Math.random() * 10) + 1),
+        counterAttack: 7,
+        isPlayer: true,
+        isEnemy: false,
+        isDefeated: false
+    },
     currentPlayer: "",
     currentEnemy: "",
     stage: 0,
@@ -66,7 +75,7 @@ var game = {
     },
 
     winCondition: function () {
-        if(this.enemiesDefeated === 2) {
+        if(this.enemiesDefeated === 3) {
             alert("You Win")
             location.reload();
         }
@@ -82,6 +91,30 @@ $(".character").on("click", function () {
         game[game.currentPlayer].isPlayer = true;
         game[game.currentPlayer].isEnemy = false;
         console.log("Is Player: " + game[game.currentPlayer].isPlayer)
+        if(game.currentPlayer === "mickey") {
+            $("#mickey").appendTo("#selectedCharacter")
+            $("#donald").appendTo("#enemiesToFight")
+            $("#goofy").appendTo("#enemiesToFight")
+            $("#pooh").appendTo("#enemiesToFight")
+        }
+        else if(game.currentPlayer === "donald") {
+            $("#donald").appendTo("#selectedCharacter")
+            $("#mickey").appendTo("#enemiesToFight")
+            $("#goofy").appendTo("#enemiesToFight")
+            $("#pooh").appendTo("#enemiesToFight")
+        }
+        else if(game.currentPlayer === "goofy") {
+            $("#goofy").appendTo("#selectedCharacter")
+            $("#donald").appendTo("#enemiesToFight")
+            $("#mickey").appendTo("#enemiesToFight")
+            $("#pooh").appendTo("#enemiesToFight")
+        }
+        else if(game.currentPlayer === "pooh") {
+            $("#pooh").appendTo("#selectedCharacter")
+            $("#donald").appendTo("#enemiesToFight")
+            $("#mickey").appendTo("#enemiesToFight")
+            $("#goofy").appendTo("#enemiesToFight")
+        }
     }
     else if (game.stage === 1) {
         game.currentEnemy = $(this).attr("value");
@@ -94,6 +127,19 @@ $(".character").on("click", function () {
         if(game[game.currentEnemy].isDefeated === true) {
             // game[game.currentEnemy].isEnemy = false;
             alert("They Are Already Defeated")
+        }
+
+        if(game.currentEnemy === "mickey") {
+            $("#mickey").appendTo("#chosenEnemy")
+        }
+        else if(game.currentEnemy === "donald") {
+            $("#donald").appendTo("#chosenEnemy")
+        }
+        else if(game.currentEnemy === "goofy") {
+            $("#goofy").appendTo("#chosenEnemy")
+        }
+        else if(game.currentEnemy === "pooh") {
+            $("#pooh").appendTo("#chosenEnemy")
         }
         
         console.log("Is Enemy: " + game[game.currentEnemy].isEnemy)
