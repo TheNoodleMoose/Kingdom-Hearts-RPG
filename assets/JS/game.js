@@ -14,7 +14,7 @@ var game = {
     donald: {
         health: 150,
         attack: 8,
-        counterAttack: 10,
+        counterAttack: 9,
         isPlayer: true,
         isEnemy: false,
         isDefeated: false
@@ -31,7 +31,7 @@ var game = {
     pooh: {
         health: 175,
         attack: Math.floor((Math.random() * 10) + 1),
-        counterAttack: 7,
+        counterAttack: 6,
         isPlayer: true,
         isEnemy: false,
         isDefeated: false
@@ -93,6 +93,7 @@ $(".character").on("click", function () {
         console.log("Is Player: " + game[game.currentPlayer].isPlayer)
         if(game.currentPlayer === "mickey") {
             $("#mickey").appendTo("#selectedCharacter")
+            $("mickeyHealth").html(game.currentPlayer.health)
             $("#donald").appendTo("#enemiesToFight")
             $("#goofy").appendTo("#enemiesToFight")
             $("#pooh").appendTo("#enemiesToFight")
