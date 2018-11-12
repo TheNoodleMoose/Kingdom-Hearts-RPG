@@ -10,6 +10,10 @@ body {
     background-size: cover;
 }
 
+#container {
+    display: flex;
+    flex-direction: column;
+}
 
 /* Character Selection */
 
@@ -28,6 +32,8 @@ body {
 /* Styles the health text to a smaller font size from characters names */
 .health {
     font-size: 16px;
+    background-color: red;
+    border-radius: 10px;
 }
 
 
@@ -79,24 +85,54 @@ body {
 #battleDiv {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
 }
 
 /* This styles the div the player and chosen enemy fight in */
 #fight-area {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     height:300px;
     width: 500px;
     margin: 0 auto;
     border: 2px solid red;
 }
 
+/*Styles the fight area container that holds the chosen character */
+#selectedCharacter {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/*Styles the fight area container that holds the chosen enemy */
+#chosenEnemy {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/*styles the text above the fight area that says your hero */
+.yourHero {
+    background: red;
+    border-radius: 10px;
+}
+/* styles the text above the fight area that says active enemy */
+.activeEnemy {
+    background: red;
+    border-radius: 10px;
+}
+
 /* Styles the div the enemies get pushed to once the player chooses a character */
 #enemiesToFight {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 300px;
-    height: 400px;
+    height: 550px;
     border: 2px solid red;
 }
 
@@ -104,8 +140,9 @@ body {
 #defeatedEnemies {
     display:flex;
     flex-direction: column;
+    align-items: center;
     width: 300px;
-    height: 400px;
+    height: 550px;
     border: 2px solid red;
 }
 

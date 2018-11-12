@@ -13,44 +13,47 @@
 </head>
 
 <body>
-    <div id="choose-character">
-        <div id="mickey" class="character mickey" value="mickey">
-            <p>Mickey</p>
-            <p></p>
-            <p class="health">Health:<span class="mickeyHealth">200</span></p>
-        </div>
-        <div id="donald" class="character donald" value="donald">
-            <p>Donald</p>
-            <p></p>
-            <p class="health">Health:<span class="donaldHealth">150</span></p>
-        </div>
-        <div id="goofy" class="character goofy" value="goofy">
-            <p>Goofy</p>
-            <p></p>
-            <p class="health">Health:<span class="donaldHealth">200</span></p>
-        </div>
+    <div id="container">
+        <div id="choose-character">
+            <div id="mickey" class="character mickey" value="mickey">
+                <p>Mickey</p>
+                <p></p>
+                <p class="health">Health:<span class="mickeyHealth"> 200</span></p>
+            </div>
+            <div id="donald" class="character donald" value="donald">
+                <p>Donald</p>
+                <p></p>
+                <p class="health">Health:<span class="donaldHealth"> 150</span></p>
+            </div>
+            <div id="goofy" class="character goofy" value="goofy">
+                <p>Goofy</p>
+                <p></p>
+                <p class="health">Health:<span class="donaldHealth"> 250</span></p>
+            </div>
 
-        <div id="pooh" class="character pooh" value="pooh">
+            <div id="pooh" class="character pooh" value="pooh">
                 <p>Pooh</p>
                 <p></p>
-                <p class="health">Health:<span class="poohHealth">175</span></p>
+                <p class="health">Health:<span class="poohHealth"> 175</span></p>
             </div>
-    </div>
-    
-    <div id="battleDiv">
-        <div id="enemiesToFight">Enemy Selection</div>
-
-        <div id="fight-area">
-            <div id="selectedCharacter">Your Hero</div>
-            <button type="button" id="attack" class="attack">Attack</button>
-            <div id="chosenEnemy">Active Enemy</div>
         </div>
 
-        <div id="defeatedEnemies">Defeated Enemies</div>
-        
-        <div id="playerDamage"></div>
-        <div id="enemyDamage"></div>
+        <div id="battleDiv">
+            <div id="enemiesToFight">Enemy Selection</div>
+
+            <div id="fight-area">
+                <div id="selectedCharacter"><span class="yourHero">Your Hero</span></div>
+                <button type="button" id="attack" class="attack">Attack</button>
+                <div id="chosenEnemy"><span class="activeEnemy">Active Enemy</span></div>
+            </div>
+
+            <div id="defeatedEnemies">Defeated Enemies</div>
+
+            <div id="playerDamage"></div>
+            <div id="enemyDamage"></div>
+        </div>
     </div>
+</body>
 </body>
 
 </html>
