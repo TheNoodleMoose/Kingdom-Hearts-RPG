@@ -15,7 +15,7 @@ var game = {
     donald: {
         name: "Donald",
         health: 150,
-        attack: 8,
+        attack: 9,
         counterAttack: 9,
         isPlayer: true,
         isEnemy: false,
@@ -71,12 +71,12 @@ var game = {
         if (defender === game.mickey) {
             $(".mickeyHealth").html(" " + defender.health)
         }
-        
-        if (defender === game.donald ) {
+
+        if (defender === game.donald) {
             $(".donaldHealth").html(" " + defender.health)
 
         }
-        
+
         if (defender === game.goofy) {
             $(".goofyHealth").html(" " + defender.health)
         }
@@ -86,11 +86,11 @@ var game = {
         }
 
         // Assigning Damage Text
-        if(attacker.isPlayer) {
+        if (attacker.isPlayer) {
             $("#enemyDamage").html(`${attacker.name} Dealt ${damage} damage To ${defender.name}`)
 
         }
-        if(attacker.isEnemy) {
+        if (attacker.isEnemy) {
             $("#playerDamage").html(`${attacker.name} Dealt ${damage} damage To ${defender.name}`)
 
         }
@@ -181,14 +181,7 @@ $(".character").on("click", function () {
 
 $(".attack").on("click", function () {
     if (game.stage === 2) {
-        if (game[game.currentEnemy].health > 0 && game[game.currentEnemy].isDefeated === false) {
-            game.damageDealer(game[game.currentEnemy], game[game.currentPlayer]);
-            game.damageDealer(game[game.currentPlayer], game[game.currentEnemy]);
-            game.loseCondition();
-            console.log("Player Health " + game[game.currentPlayer].health);
-            console.log("Enemy Health " + game[game.currentEnemy].health);
-        }
-
+        game.damageDealer(game[game.currentEnemy], game[game.currentPlayer]);
         if (game[game.currentEnemy].health <= 0 && game[game.currentPlayer].health > 0) {
             game[game.currentEnemy].isDefeated = true;
             game.enemiesDefeated++;
@@ -210,8 +203,17 @@ $(".attack").on("click", function () {
             }
 
         }
+        if (game[game.currentEnemy].health >= 0) {
+            game.damageDealer(game[game.currentPlayer], game[game.currentEnemy]);
+        }
+
+        console.log("Player Health " + game[game.currentPlayer].health);
+        console.log("Enemy Health " + game[game.currentEnemy].health);
+
+
 
         game.winCondition();
+        game.loseCondition();
     }
 });
 
