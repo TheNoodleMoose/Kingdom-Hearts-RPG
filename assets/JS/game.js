@@ -30,7 +30,7 @@ var game = {
 
     pooh: {
         health: 175,
-        attack: Math.floor((Math.random() * 10) + 1),
+        attack: Math.floor((Math.random() * 10) + 2),
         counterAttack: 6,
         isPlayer: true,
         isEnemy: false,
