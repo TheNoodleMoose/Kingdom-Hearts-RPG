@@ -24,7 +24,7 @@ var game = {
     goofy: {
         name: "Goofy",
         health: 250,
-        attack: 4,
+        attack: 3.5,
         counterAttack: 6,
         isPlayer: true,
         isEnemy: false,
