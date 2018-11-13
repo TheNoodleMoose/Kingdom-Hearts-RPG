@@ -230,6 +230,7 @@ body {
     width: 500px;
     margin: 0 auto;
     border: 2px solid red;
+    background: rgba(107,27,177, .8)
 }
 
 /*Styles the fight area container that holds the chosen character */
@@ -269,6 +270,7 @@ body {
     width: 300px;
     height: 550px;
     border: 2px solid red;
+    background: rgba(107,27,177, .8)
 }
 
 /*Styles the div the enemies get pushed to once they are defeated */
@@ -280,6 +282,7 @@ body {
     height: 550px;
     border: 2px solid red;
     pointer-events: none;
+    background: rgba(107,27,177, .8)
 }
 
 /*This styles the attack button */
