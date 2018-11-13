@@ -53,7 +53,8 @@ body {
     text-align: center;
     color: rgb(255, 255, 255);
 }
-
+    /* MICKEY CHARACTER */
+/*<=======================>*/
 /*gives mickey his character image */
 .mickey {
     background: url("../images/mickey/mickey-select.png");
@@ -62,7 +63,7 @@ body {
     image-rendering: pixelated;
     background-position: center;     
 }
-
+/*Sets sprite when character is the player*/
 #selectedCharacter .mickey {
     background: url("../images/mickey/mickey-sprite-right.png");
     background-repeat: no-repeat;
@@ -70,7 +71,7 @@ body {
     image-rendering: pixelated;
     background-position: center;
 }
-
+/*Sets sprite when character is the active enemy*/
 #chosenEnemy .mickey {
     background: url("../images/mickey/mickey-sprite-left.png");
     background-repeat: no-repeat;
@@ -78,26 +79,18 @@ body {
     image-rendering: pixelated;
     background-position: center; 
 }
-
-#chosenEnemy .mickey #name {
+/* Sets the name hidden when they are the selected character/active enemy/defeated and hides health bar when defeated */
+#chosenEnemy .mickey #name, #selectedCharacter .mickey #name, 
+#defeatedEnemies .mickey #name, #defeatedEnemies .mickey .health {
     display: none;
 }
-
-#selectedCharacter .mickey #name {
-    display: none;
-}
-
+/*Styles sprite when it is defeated */
 #defeatedEnemies .mickey {
-    margin: 0 auto;
     background: url("../images/mickey/mickey-defeated.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     image-rendering: pixelated; 
-}
-
-#defeatedEnemies .mickey #name, #defeatedEnemies .mickey .health {
-    display: none;
 }
 
     /* DONALD CHARACTER */
@@ -109,39 +102,32 @@ body {
     image-rendering: pixelated;
     background-position: center;    
 }
+/*Sets sprite when character is the player*/
 #selectedCharacter .donald {
     background: url("../images/donald/donald-sprite-right.png");
     background-repeat: no-repeat;
     background-size: contain;
     image-rendering: pixelated; 
 }
-
+/*Sets sprite when character is the active enemy*/
 #chosenEnemy .donald {
     background: url("../images/donald/donald-sprite-left.png");
     background-repeat: no-repeat;
     background-size: contain;
     image-rendering: pixelated; 
 }
-
-#chosenEnemy .donald #name {
+/* Sets the name hidden when they are the selected character/active enemy/defeated and hides health bar when defeated */
+#chosenEnemy .donald #name, #selectedCharacter .donald #name, 
+#defeatedEnemies .donald #name, #defeatedEnemies .donald .health {
     display: none;
 }
-
-#selectedCharacter .donald #name {
-    display: none;
-}
-
+/*Styles sprite when it is defeated */
 #defeatedEnemies .donald {
-    margin: 0 auto;
     background: url("../images/donald/donald-defeated.png");
     background-repeat: no-repeat;
     background-size: contain;
     image-rendering: pixelated; 
     background-position: center;
-}
-
-#defeatedEnemies .donald #name, #defeatedEnemies .donald .health {
-    display: none;
 }
 
     /* GOOFY CHARACTER */
@@ -154,7 +140,7 @@ body {
     image-rendering: pixelated;
     background-position: center;     
 }
-
+/*Sets sprite when character is the player*/
 #selectedCharacter .goofy {
     background: url("../images/goofy/goofy-sprite-right.png");
     background-repeat: no-repeat;
@@ -162,7 +148,7 @@ body {
     image-rendering: pixelated;
     background-position: center;
 }
-
+/*Sets sprite when character is the active enemy*/
 #chosenEnemy .goofy {
     background: url("../images/goofy/goofy-sprite-left.png");
     background-repeat: no-repeat;
@@ -170,26 +156,18 @@ body {
     image-rendering: pixelated;
     background-position: center; 
 }
-
-#chosenEnemy .goofy #name {
+/* Sets the name hidden when they are the selected character/active enemy/defeated and hides health bar when defeated */
+#chosenEnemy .goofy #name, #selectedCharacter .goofy #name, 
+#defeatedEnemies .goofy #name, #defeatedEnemies .goofy .health {
     display: none;
 }
-
-#selectedCharacter .goofy #name {
-    display: none;
-}
-
+/*Styles sprite when it is defeated */
 #defeatedEnemies .goofy {
-    margin: 0 auto;
     background: url("../images/goofy/1.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     image-rendering: pixelated; 
-}
-
-#defeatedEnemies .goofy #name, #defeatedEnemies .goofy .health {
-    display: none;
 }
 
     /* POOH CHARACTER */
@@ -203,7 +181,7 @@ body {
     image-rendering: pixelated;
     background-position: center;     
 }
-
+/*Sets sprite when character is the player*/
 #selectedCharacter .pooh {
     background: url("../images/pooh/pooh-sprite-right.png");
     background-repeat: no-repeat;
@@ -211,7 +189,7 @@ body {
     image-rendering: pixelated;
     background-position: center;
 }
-
+/*Sets sprite when character is the active enemy*/
 #chosenEnemy .pooh {
     background: url("../images/pooh/pooh-sprite-left.png");
     background-repeat: no-repeat;
@@ -219,26 +197,18 @@ body {
     image-rendering: pixelated;
     background-position: center; 
 }
-
-#chosenEnemy .pooh #name {
+/* Sets the name hidden when they are the selected character/active enemy/defeated and hides health bar when defeated */
+#chosenEnemy .pooh #name, #selectedCharacter .pooh #name, 
+#defeatedEnemies .pooh #name, #defeatedEnemies .pooh .health {
     display: none;
 }
-
-#selectedCharacter .pooh #name {
-    display: none;
-}
-
+/*Styles sprite when it is defeated */
 #defeatedEnemies .pooh {
-    margin: 0 auto;
     background: url("../images/pooh/pooh-defeated.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     image-rendering: pixelated; 
-}
-
-#defeatedEnemies .pooh #name, #defeatedEnemies .pooh .health {
-    display: none;
 }
 
     /* Fighting Areas */
@@ -321,14 +291,14 @@ body {
     color: white;
     border-radius: 10px;
 }
-
+/*Styles the text underneath the enemy that display damage done by player */
 #playerDamage {
     background-color: red;
     text-align: center;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-
+/* Styles the text underneath the player that displays damage done by enemy */
 #enemyDamage {
     background-color: red;
     text-align: center;

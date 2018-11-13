@@ -1,8 +1,10 @@
-
+// Object that holds all game objects and functions
 var game = {
+    //Eventually all characters will be in this character object for scaleiability, haven't done it yet though
     character: {
 
     },
+    //Mickey Object
     mickey: {
         name: "Mickey",
         health: 200,
@@ -12,6 +14,7 @@ var game = {
         isEnemy: false,
         isDefeated: false,
     },
+    //Donald Object
     donald: {
         name: "Donald",
         health: 150,
@@ -21,6 +24,7 @@ var game = {
         isEnemy: false,
         isDefeated: false
     },
+    //Goofy Object
     goofy: {
         name: "Goofy",
         health: 250,
@@ -30,7 +34,7 @@ var game = {
         isEnemy: false,
         isDefeated: false
     },
-
+    //Pooh Object
     pooh: {
         name: "Pooh",
         health: 175,
@@ -40,13 +44,18 @@ var game = {
         isEnemy: false,
         isDefeated: false
     },
+    //Empty string that holds which character is the current player
     currentPlayer: "",
+    //Empty string that holds which character is the current enemy
     currentEnemy: "",
+    //This is the staging variable on which the game runs, very important
     stage: 0,
+    //Used for the damage calculation
     damageMultipler: 1,
+    //Used to for the winning condition
     enemiesDefeated: 0,
 
-
+    //h is how damage is calculated, runs depending on if character is the player or not
     damageCalculation: function (character) {
         this.damageMultipler += .1;
 
@@ -59,15 +68,17 @@ var game = {
 
         return totalDamage;
     },
-
+    //Function that generates a random number between 100 - 85 and divides it by 100 to get a decimal value
     randomDamage() {
         return (Math.floor(Math.random() * (100 - 85) + 85)) / 100;
     },
 
-
+    //This function deals the damage, takes a argument of defender and attacker
     damageDealer: function (defender, attacker) {
         let damage = this.damageCalculation(attacker)
         defender.health -= damage;
+
+        //These assign healths to each character so their health dynamically changes
         if (defender === game.mickey) {
             $(".mickeyHealth").html(" " + defender.health)
         }
@@ -95,7 +106,7 @@ var game = {
 
         }
     },
-
+    //Function that checks if the player is defeated
     loseCondition: function () {
         if (game[game.currentPlayer].isPlayer === true && game[game.currentPlayer].health <= 0) {
             game[game.currentPlayer].isDefeated = true;
@@ -104,7 +115,7 @@ var game = {
             location.reload();
         }
     },
-
+    //Function that checks if the player has defeated the correct amount of enemies 
     winCondition: function () {
         if (this.enemiesDefeated === 3) {
             alert("The Final Foe Is Defeated, You Win!")
@@ -114,6 +125,10 @@ var game = {
 
 }
 
+//On click function to choose a character and then a enemy
+//If the stage is 0, you choose a character and the stage goes to 1
+//When in stage one you can select a enemy, the stage will then go up to 2
+//This function also appends the enemies and the chosen player to their appopriate positions
 $(".character").on("click", function () {
     if (game.stage === 0) {
         game.currentPlayer = $(this).attr("value");
@@ -156,11 +171,7 @@ $(".character").on("click", function () {
             game[game.currentEnemy].isEnemy = true;
             game[game.currentEnemy].isPlayer = false;
         }
-        if (game[game.currentEnemy].isDefeated === true) {
-            // game[game.currentEnemy].isEnemy = false;
-            alert("They Are Already Defeated")
-        }
-
+        //These move the characters to the active enemy spot depending on the character
         if (game.currentEnemy === "mickey") {
             $("#mickey").appendTo("#enemyGoesHere")
         }
@@ -179,6 +190,10 @@ $(".character").on("click", function () {
 
 });
 
+//This is the attack function that is ran once the attack button is pressed
+//It only runs if the the game stage is on stage 2
+//Once a enemy is defeated the game stage will switch back to 1 so a new enemy can be selected
+//The win and loss conditions are also ran here to see whether on attack click if the player has won or either loss
 $(".attack").on("click", function () {
     if (game.stage === 2) {
         game.damageDealer(game[game.currentEnemy], game[game.currentPlayer]);
@@ -201,7 +216,6 @@ $(".attack").on("click", function () {
             if (game.pooh.isDefeated === true) {
                 $("#pooh").appendTo("#defeatedEnemies")
             }
-
         }
         if (game[game.currentEnemy].health >= 0) {
             game.damageDealer(game[game.currentPlayer], game[game.currentEnemy]);
@@ -210,13 +224,8 @@ $(".attack").on("click", function () {
         console.log("Player Health " + game[game.currentPlayer].health);
         console.log("Enemy Health " + game[game.currentEnemy].health);
 
-
-
         game.winCondition();
         game.loseCondition();
     }
 });
 
-if (game.mickey.isDefeated === true) {
-    $("#mickey").appendTo("#defeatedEnemies")
-}
