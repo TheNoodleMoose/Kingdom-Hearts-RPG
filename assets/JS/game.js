@@ -118,8 +118,10 @@ var game = {
     //Function that checks if the player has defeated the correct amount of enemies 
     winCondition: function () {
         if (this.enemiesDefeated === 3) {
-            alert("The Final Foe Is Defeated, You Win!")
-            location.reload();
+            setTimeout(function() {
+                alert("The Final Foe Is Defeated, You Win!")
+                location.reload();
+            }, 300)
         }
     },
 
