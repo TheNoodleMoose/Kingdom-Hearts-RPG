@@ -98,11 +98,11 @@ var game = {
 
         // Assigning Damage Text
         if (attacker.isPlayer) {
-            $("#enemyDamage").html(`${attacker.name} Dealt ${damage} damage To ${defender.name}`)
+            $("#enemyDamage").html(`${attacker.name} Dealt ${damage} damage To ${defender.name}!`)
 
         }
         if (attacker.isEnemy) {
-            $("#playerDamage").html(`${attacker.name} Dealt ${damage} damage To ${defender.name}`)
+            $("#playerDamage").html(`${attacker.name} Dealt ${damage} damage To ${defender.name}!`)
 
         }
     },
